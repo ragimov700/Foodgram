@@ -104,6 +104,29 @@ class RecipeCreateSerializer(serializers.ModelSerializer):
         model = Recipe
         fields = '__all__'
 
+    def validate_tags(self, data):
+        if not len(data):
+            raise serializers.ValidationError(
+                'Список тэгов не должен быть пустым')
+        if len(data) != len(set(data)):
+            raise serializers.ValidationError('Тэги не должны повторяться')
+        return data
+
+    def validate_ingredients(self, data):
+        if not len(data):
+            raise serializers.ValidationError(
+                'Список ингредиентов не должен быть пустым')
+        ingredient_list = []
+        for ingredient in data:
+            if ingredient['amount'] < 1:
+                raise serializers.ValidationError(
+                    'Количество ингредиента должно быть больше 0')
+            if ingredient['id'] in ingredient_list:
+                raise serializers.ValidationError(
+                    'Ингредиенты не должны повторяться')
+            ingredient_list.append(ingredient['id'])
+        return data
+
     def create_ingredients(self, ingredients, recipe):
         recipe_ingredients = [
             RecipeIngredient(
