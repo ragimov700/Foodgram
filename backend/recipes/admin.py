@@ -2,9 +2,11 @@ from django.contrib import admin
 
 from .models import Tag, Recipe, Ingredient, RecipeIngredient
 
+
 class RecipeIngredientInline(admin.TabularInline):
     model = RecipeIngredient
     extra = 1
+
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
@@ -13,7 +15,7 @@ class TagAdmin(admin.ModelAdmin):
 
 @admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
-    inlines = (RecipeIngredientInline, )
+    inlines = (RecipeIngredientInline,)
 
 
 @admin.register(Ingredient)
