@@ -9,15 +9,16 @@ from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import SAFE_METHODS, IsAuthenticated
 from rest_framework.response import Response
 
-from recipes.models import Tag, Recipe, Ingredient, FavoritesList, \
-    ShoppingList, RecipeIngredient
+from recipes.models import (Tag, Recipe, Ingredient, FavoritesList,
+                            ShoppingList, RecipeIngredient)
 from users.models import Subscriber
 from .filters import RecipeFilter
 from .pagination import CustomPagination
 from .permissions import IsAuthorOrAdminOrReadOnly
-from .serializers import TagSerializer, RecipeSerializer, IngredientSerializer, \
-    RecipeCreateSerializer, FavoriteOrCartSerializer, CustomUserSerializer, \
-    SubscriptionSerializer
+from .serializers import (TagSerializer, RecipeSerializer,
+                          IngredientSerializer, RecipeCreateSerializer,
+                          FavoriteOrCartSerializer, CustomUserSerializer,
+                          SubscriptionSerializer)
 
 User = get_user_model()
 
