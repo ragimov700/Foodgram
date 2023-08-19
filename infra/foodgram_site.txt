@@ -1,0 +1,4 @@
+IP: 51.250.102.137;
+domain: https://foodgram007.ddns.net/;
+admin_login: admin@admin.ru;
+admin_password: admin;

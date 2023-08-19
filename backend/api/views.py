@@ -12,7 +12,7 @@ from rest_framework.response import Response
 from recipes.models import (Tag, Recipe, Ingredient, FavoritesList,
                             ShoppingList, RecipeIngredient)
 from users.models import Subscriber
-from .filters import RecipeFilter
+from .filters import RecipeFilter, IngredientFilter
 from .pagination import CustomPagination
 from .permissions import IsAuthorOrAdminOrReadOnly
 from .serializers import (TagSerializer, RecipeSerializer,
@@ -92,6 +92,9 @@ class RecipeViewSet(viewsets.ModelViewSet):
 class IngredientViewSet(viewsets.ModelViewSet):
     queryset = Ingredient.objects.all()
     serializer_class = IngredientSerializer
+    pagination_class = None
+    filter_backends = (IngredientFilter,)
+    search_fields = ('^name',)
 
 
 class CustomUserViewSet(UserViewSet):

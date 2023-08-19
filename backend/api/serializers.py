@@ -15,9 +15,8 @@ class CustomUserSerializer(UserSerializer):
 
     class Meta:
         model = User
-        fields = (
-            'email', 'id', 'username', 'first_name', 'last_name',
-            'is_subscribed')
+        fields = ('email', 'id', 'username', 'first_name', 'last_name',
+                  'is_subscribed')
 
     def get_is_subscribed(self, obj):
         request = self.context.get('request')
@@ -62,10 +61,9 @@ class RecipeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Recipe
-        fields = (
-            'id', 'tags', 'author', 'ingredients', 'is_favorited',
-            'is_in_shopping_cart', 'name', 'image', 'text',
-            'cooking_time')
+        fields = ('id', 'tags', 'author', 'ingredients',
+                  'is_favorited', 'is_in_shopping_cart',
+                  'name', 'image', 'text', 'cooking_time')
 
     def is_relation_exists(self, obj, model):
         request = self.context.get('request')
@@ -188,10 +186,8 @@ class SubscriptionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = (
-            'email', 'id', 'username', 'first_name', 'last_name',
-            'is_subscribed',
-            'recipes', 'recipes_count')
+        fields = ('email', 'id', 'username', 'first_name', 'last_name',
+                  'is_subscribed', 'recipes', 'recipes_count')
 
     def get_is_subscribed(self, obj):
         request = self.context.get('request')
