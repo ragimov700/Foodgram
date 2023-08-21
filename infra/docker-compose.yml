@@ -8,7 +8,7 @@ services:
       - .env
 
   backend:
-    image: ${DOCKER_LOGIN}/foodgram_backend
+    image: ragimov700/foodgram_backend
     container_name: foodgram_backend
     volumes:
       - ../static/:/app/static/
@@ -20,7 +20,7 @@ services:
     restart: always
 
   frontend:
-    image: ${DOCKER_LOGIN}/foodgram_frontend
+    image: ragimov700/foodgram_frontend
     container_name: foodgram_frontend
     volumes:
       - ../frontend/:/app/result_build/
@@ -30,7 +30,7 @@ services:
   nginx:
     image: nginx:1.19.3
     ports:
-      - ${NGINX_PORT}:80
+      - 8000:80
     volumes:
       - ../static/:/var/html/static/
       - ../media/:/var/html/media/recipes/

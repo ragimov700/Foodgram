@@ -16,8 +16,16 @@ class TagAdmin(admin.ModelAdmin):
 @admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
     inlines = (RecipeIngredientInline,)
+    list_display = ('name', 'author', 'favorites',)
+    list_filter = ('author', 'tags',)
+    search_fields = ('name', 'author__username',)
+
+    @admin.display(description='В избранном')
+    def favorites(self, obj):
+        return obj.favorites.count()
 
 
 @admin.register(Ingredient)
 class IngredientAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'measurement_unit',)
+    search_fields = ('name',)
