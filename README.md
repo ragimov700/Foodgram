@@ -1,10 +1,23 @@
-# Описание проекта
-«Фудграм» — сайт, на котором пользователи могу публиковать рецепты, добавлять чужие рецепты в избранное и подписываться на публикации других авторов. Пользователям сайта также доступен сервис «Список покупок». Он позволит создавать список продуктов, которые нужно купить для приготовления выбранных блюд.
+<h1 align="center">Foodgram</h1>
+
+Foodgram — онлайн-сервис «Продуктовый помощник».
+Здесь Вы можете публиковать рецепты, подписываться на публикации других пользователей,
+добавлять понравившиеся рецепты в список «Избранное»,
+а перед походом в магазин скачивать сводный список продуктов,
+необходимых для приготовления одного или нескольких выбранных блюд.
+
+---
+### Технологии
+![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
+![DjangoREST](https://img.shields.io/badge/DJANGO-REST-ff1709?style=for-the-badge&logo=django&logoColor=white&color=ff1709&labelColor=gray)
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
 
 # Установка
 ### 1. Клонируем репозиторий
 ```
-git clone git@github.com:ragimov700/foodgram-project-react.git
+git clone git@github.com:ragimov700/Foodgram.git
 ```
 ### 2. Создаем .env файл
 ```
@@ -27,4 +40,5 @@ sudo docker compose exec backend sh
 python manage.py migrate
 python manage.py collectstatic
 ```
-# Готово
+---
+<h5 align="center">Автор проекта: <a href="https://github.com/ragimov700">Sherif Ragimov</a></h5>
